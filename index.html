@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Date-Anfrage ❤️</title>
+<title>Date-Anfrage für Ayçem ❤️</title>
 
 <style>
 *{
@@ -13,68 +13,170 @@
 }
 
 body{
-    font-family: "Segoe UI", sans-serif;
-    height:100vh;
+    font-family:"Segoe UI", sans-serif;
+    min-height:100vh;
     overflow:hidden;
-    background: linear-gradient(135deg,#ff9ecf,#ffd6e8);
+    background:linear-gradient(135deg,#ff8ec7,#ffd6e8,#fff0f6);
     display:flex;
     justify-content:center;
     align-items:center;
+    padding:20px;
 }
 
 .card{
-    background:white;
-    padding:40px;
-    border-radius:25px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    background:rgba(255,255,255,0.95);
+    padding:28px;
+    border-radius:28px;
+    box-shadow:0 18px 45px rgba(0,0,0,0.18);
     text-align:center;
-    max-width:500px;
-    width:90%;
+    max-width:520px;
+    width:100%;
     z-index:10;
+    position:relative;
 }
 
 h1{
-    color:#ff4f8b;
-    margin-bottom:20px;
+    color:#ff3f86;
+    margin-bottom:14px;
+}
+
+h2{
+    color:#333;
+    margin-bottom:22px;
 }
 
 p{
+    color:#555;
+    margin-bottom:18px;
+    font-size:16px;
+}
+
+.photos{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
     margin-bottom:20px;
+}
+
+.profile{
+    width:95px;
+    height:95px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid #ff6fa8;
+    box-shadow:0 8px 18px rgba(255,79,139,0.3);
+}
+
+.matcha{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:22px;
+    border:4px solid #ffc4dc;
+    box-shadow:0 8px 18px rgba(0,0,0,0.12);
 }
 
 button{
     border:none;
-    padding:14px 25px;
-    border-radius:12px;
-    font-size:18px;
+    padding:14px 22px;
+    border-radius:15px;
+    font-size:17px;
     cursor:pointer;
-    transition:.3s;
+    transition:.25s;
+    font-weight:600;
 }
 
 .yes{
     background:#ff4f8b;
     color:white;
+    box-shadow:0 8px 18px rgba(255,79,139,0.35);
 }
 
 .yes:hover{
     transform:scale(1.05);
 }
 
+.no-area{
+    margin-top:18px;
+}
+
+.hint{
+    color:#ff4f8b;
+    font-size:15px;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
 .no{
-    background:#ddd;
+    background:#eee;
+    color:#333;
     position:absolute;
 }
 
-#form{
+#options{
     display:none;
+}
+
+.option{
+    padding:16px;
+    border-radius:18px;
+    background:#fff0f6;
+    margin:12px 0;
+    cursor:pointer;
+    border:2px solid transparent;
+    transition:.25s;
+    font-size:16px;
+    font-weight:600;
+}
+
+.option:hover{
+    transform:scale(1.02);
+}
+
+.option.selected{
+    border-color:#ff4f8b;
+    background:#ffd6e8;
+}
+
+.date-box{
+    background:#fff0f6;
+    padding:14px;
+    border-radius:16px;
+    margin:18px 0;
+    font-weight:700;
+    color:#ff3f86;
 }
 
 input{
     width:100%;
-    padding:12px;
-    margin:8px 0;
-    border-radius:10px;
+    padding:14px;
+    margin:10px 0 18px;
+    border-radius:14px;
     border:1px solid #ddd;
+    font-size:17px;
+    text-align:center;
+}
+
+.popup{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+    padding:20px;
+}
+
+.popup-card{
+    background:white;
+    padding:30px;
+    border-radius:28px;
+    max-width:420px;
+    width:100%;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,0.25);
 }
 
 .heart{
@@ -82,155 +184,228 @@ input{
     color:white;
     font-size:20px;
     animation:float 8s linear infinite;
-    opacity:.7;
+    opacity:.75;
+    pointer-events:none;
 }
 
 @keyframes float{
-    from{
-        transform:translateY(100vh);
+    from{ transform:translateY(100vh); }
+    to{ transform:translateY(-120px); }
+}
+
+@media(max-width:420px){
+    .profile{
+        width:78px;
+        height:78px;
     }
-    to{
-        transform:translateY(-100px);
+
+    .matcha{
+        width:74px;
+        height:74px;
+    }
+
+    .card{
+        padding:22px;
+    }
+
+    h1{
+        font-size:25px;
     }
 }
 </style>
 </head>
+
 <body>
 
 <div class="card" id="start">
 
-    <h1>❤️ Eine wichtige Frage ❤️</h1>
+    <div class="photos">
+        <img src="aycem.jpg" class="profile" alt="Ayçem">
+        <img src="matcha.jpg" class="matcha" alt="Strawberry Matcha Latte">
+        <img src="suleyman.jpg" class="profile" alt="Süleyman">
+    </div>
+
+    <h1>Hey Ayçem ❤️</h1>
 
     <p>
-        Seit einiger Zeit wollte ich dich etwas fragen...
+        Ich habe eine sehr wichtige Frage an dich...
     </p>
 
-    <h2 style="margin-bottom:25px;">
+    <h2>
         Willst du mit mir auf ein Date gehen?
     </h2>
 
-    <button class="yes" onclick="showForm()">
-        Ja 😍
+    <button class="yes" onclick="showOptions()">
+        Ja ❤️
     </button>
 
-    <button id="noBtn" class="no">
-        Nein 🙈
+    <div class="no-area">
+        <div class="hint">versuchs mal 😏</div>
+        <button id="noBtn" class="no">Nein 💀</button>
+    </div>
+
+</div>
+
+<div class="card" id="options">
+
+    <h1>Jaaa ❤️</h1>
+
+    <p>Dann such dir aus, worauf du Lust hast.</p>
+
+    <div class="option" onclick="selectOption(this)">
+        🍸 Fancy Ayçem Drink Bar
+    </div>
+
+    <div class="option" onclick="selectOption(this)">
+        🥣 Acai Bowl a l‘Ayçem
+    </div>
+
+    <div class="option" onclick="selectOption(this)">
+        ✨ Entscheiden es spontan worauf wir Lust haben
+    </div>
+
+    <div class="date-box">
+        📅 Date am 26.06.2026
+    </div>
+
+    <p>Welche ungefähre Uhrzeit passt dir?</p>
+
+    <input type="time" id="timeInput">
+
+    <button class="yes" onclick="finishDate()">
+        Das klingt gut, weiter ❤️
     </button>
 
 </div>
 
-<div class="card" id="form">
+<div id="popup" class="popup">
+    <div class="popup-card">
+        <h1>Perfekt ❤️</h1>
 
-    <h1>🥰 Jaaa!</h1>
+        <p>
+            Ihr habt ein Date!
+        </p>
 
-    <p>Dann planen wir direkt unser Date.</p>
+        <p id="summary"></p>
 
-    <input type="date" id="date">
+        <p>
+            Bitte teil das mit Süleyman.
+        </p>
 
-    <input type="time" id="time">
-
-    <input
-        type="text"
-        id="place"
-        placeholder="Wo treffen wir uns?"
-    >
-
-    <button class="yes" onclick="confirmDate()">
-        Date bestätigen ❤️
-    </button>
-
+        <button class="yes" onclick="shareWhatsApp()">
+            Okay, wird gemacht 💕
+        </button>
+    </div>
 </div>
 
 <script>
-
 const noBtn = document.getElementById("noBtn");
+let selectedOption = "";
 
 function moveButton(){
-
-    const x = Math.random() * (window.innerWidth - 150);
-    const y = Math.random() * (window.innerHeight - 70);
+    const x = Math.random() * (window.innerWidth - 140);
+    const y = Math.random() * (window.innerHeight - 80);
 
     noBtn.style.left = x + "px";
     noBtn.style.top = y + "px";
 }
 
 noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("touchstart", moveButton);
+noBtn.addEventListener("touchstart", function(e){
+    e.preventDefault();
+    moveButton();
+});
 
-function showForm(){
+function showOptions(){
+    document.getElementById("start").style.display = "none";
+    document.getElementById("options").style.display = "block";
+}
 
-    document.getElementById("start").style.display="none";
-    document.getElementById("form").style.display="block";
+function selectOption(el){
+    document.querySelectorAll(".option").forEach(option => {
+        option.classList.remove("selected");
+    });
+
+    el.classList.add("selected");
+    selectedOption = el.innerText.trim();
 }
 
 function launchConfetti(){
-
-    for(let i=0;i<120;i++){
-
+    for(let i = 0; i < 120; i++){
         const conf = document.createElement("div");
-
-        conf.innerHTML = ["🎉","❤️","✨"][Math.floor(Math.random()*3)];
-
-        conf.style.position="fixed";
-        conf.style.left=Math.random()*100+"vw";
-        conf.style.top="-20px";
-        conf.style.fontSize=(15+Math.random()*20)+"px";
+        conf.innerHTML = ["🎉","❤️","✨","💕"][Math.floor(Math.random() * 4)];
+        conf.style.position = "fixed";
+        conf.style.left = Math.random() * 100 + "vw";
+        conf.style.top = "-20px";
+        conf.style.fontSize = 15 + Math.random() * 22 + "px";
+        conf.style.zIndex = "999";
 
         document.body.appendChild(conf);
 
-        const duration = 2000 + Math.random()*2000;
+        const duration = 2000 + Math.random() * 2200;
 
         conf.animate([
-            {transform:"translateY(0) rotate(0deg)"},
-            {transform:`translateY(${window.innerHeight+200}px) rotate(720deg)`}
+            { transform:"translateY(0) rotate(0deg)" },
+            { transform:`translateY(${window.innerHeight + 200}px) rotate(720deg)` }
         ],{
             duration:duration,
             easing:"linear"
         });
 
-        setTimeout(()=>conf.remove(),duration);
+        setTimeout(() => conf.remove(), duration);
     }
 }
 
-function confirmDate(){
+function finishDate(){
+    const time = document.getElementById("timeInput").value;
+
+    if(selectedOption === ""){
+        alert("Bitte such zuerst eine Date-Art aus ❤️");
+        return;
+    }
+
+    if(time === ""){
+        alert("Bitte trag noch eine ungefähre Uhrzeit ein ❤️");
+        return;
+    }
+
+    document.getElementById("summary").innerHTML =
+        `📅 26.06.2026<br>🕒 ${time} Uhr<br><br>${selectedOption}`;
 
     launchConfetti();
 
-    setTimeout(()=>{
-
-        document.body.innerHTML=`
-        <div style="
-            height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
-            flex-direction:column;
-            font-family:Segoe UI;
-            background:linear-gradient(135deg,#ff9ecf,#ffd6e8);
-        ">
-            <h1>❤️ Perfekt! ❤️</h1>
-            <h2>Ich freue mich riesig auf unser Date! 🥰</h2>
-            <p style="margin-top:20px;font-size:20px;">
-                Bis ganz bald ✨
-            </p>
-        </div>
-        `;
-
-    },1000);
+    setTimeout(() => {
+        document.getElementById("popup").style.display = "flex";
+    }, 600);
 }
 
-for(let i=0;i<25;i++){
+function shareWhatsApp(){
+    const time = document.getElementById("timeInput").value;
 
-    const heart=document.createElement("div");
+    const text =
+`Hey Süleyman 😊
 
-    heart.className="heart";
-    heart.innerHTML="❤️";
+Ich habe dein Date angenommen ❤️
 
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(5+Math.random()*6)+"s";
-    heart.style.fontSize=(15+Math.random()*25)+"px";
+📅 26.06.2026
+🕒 ${time} Uhr
 
+Meine Auswahl:
+${selectedOption}`;
+
+    window.open(
+        "https://wa.me/?text=" + encodeURIComponent(text),
+        "_blank"
+    );
+}
+
+for(let i = 0; i < 28; i++){
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 5 + Math.random() * 7 + "s";
+    heart.style.fontSize = 14 + Math.random() * 24 + "px";
     document.body.appendChild(heart);
 }
 </script>
